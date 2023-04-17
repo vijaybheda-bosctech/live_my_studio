@@ -1,4 +1,4 @@
-# LiveView Studio
+# LiveMyStudio
 
 ## Installation
 
