@@ -22,5 +22,7 @@ defmodule LiveMyStudioWeb.UserSessionController do
     conn
     |> put_flash(:info, "Logged out successfully.")
     |> UserAuth.log_out_user()
+
+    # |> redirect(to: Routes.user_session_path(conn, :new))
   end
 end

@@ -23,27 +23,6 @@ defmodule LiveMyStudioWeb.Router do
     # get("/sales", SalesController, :index)
 
     live("/", PageLive)
-    # live("/license", LicenseLive)
-    # live("/sales-dashboard", SalesDashboardLive)
-    # live("/search", SearchLive)
-    # live("/flights", FlightsLive)
-    # live("/autocomplete", AutocompleteLive)
-    # live("/filter", FilterLive)
-    # live("/gitrepos", GitReposLive)
-    # live("/servers", ServersLive)
-    # live("/servers/new", ServersLive, :new)
-    # live("/paginate", PaginateLive)
-    # live("/vehicles", VehiclesLive)
-    # live("/sort", SortLive)
-    # live("/volunteers", VolunteersLive)
-    # live("/infinite-scroll", InfiniteScrollLive)
-    # live("/sandbox", SandboxLive)
-    # live("/chart", ChartLive)
-    # live("/map", MapLive)
-    # live("/key-events", KeyEventsLive)
-    # live("/desks", DesksLive)
-    # live("/underwater", UnderwaterLive)
-    # live("/underwater/show", UnderwaterLive, :show_modal)
   end
 
   # Other scopes may use custom stacks.
@@ -97,7 +76,7 @@ defmodule LiveMyStudioWeb.Router do
   scope "/", LiveMyStudioWeb do
     pipe_through([:browser])
 
-    delete("/users/log_out", UserSessionController, :delete)
+    get("/users/log_out", UserSessionController, :delete)
     get("/users/confirm", UserConfirmationController, :new)
     post("/users/confirm", UserConfirmationController, :create)
     get("/users/confirm/:token", UserConfirmationController, :confirm)
