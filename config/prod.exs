@@ -21,16 +21,16 @@ config :logger, level: :info
 # To get SSL working, you will need to add the `https` key
 # to the previous section and set your `:url` port to 443:
 #
-#     config :live_my_studio, LiveMyStudioWeb.Endpoint,
-#       ...
-#       url: [host: "example.com", port: 443],
-#       https: [
-#         port: 443,
-#         cipher_suite: :strong,
-#         keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
-#         certfile: System.get_env("SOME_APP_SSL_CERT_PATH"),
-#         transport_options: [socket_opts: [:inet6]]
-#       ]
+config :live_my_studio, LiveMyStudioWeb.Endpoint,
+  load_from_system_env: true,
+  url: [host: {:system, "HOST"}, port: {:system, "PORT"}],
+  server: true,
+  version: Application.spec(:live_my_studio, :vsn),
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
+  session_cookie_name: System.get_env("SESSION_COOKIE_NAME"),
+  session_cookie_signing_salt: System.get_env("SESSION_COOKIE_SIGNING_SALT"),
+  session_cookie_encryption_salt: System.get_env("SESSION_COOKIE_ENCRYPTION_SALT")
+
 #
 # The `cipher_suite` is set to `:strong` to support only the
 # latest and more secure SSL ciphers. This means old browsers
